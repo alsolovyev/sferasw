@@ -1,0 +1,62 @@
+/**
+ * Hero
+ */
+$hero-bg-color: #E5E5E5
+$hero-max-width: 1200
+
+.hero
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  min-height: 100vh
+  padding: 100px 0
+  z-index: 2
+  // box-shadow: inset 0 -20px 20px -10px rgba(0, 0, 0, .5)
+
+  &__inner
+    width: 90%
+    max-width: #{$hero-max-width + 'px'}
+
+  &__subtitle
+    margin-top: 0.5em
+    @include fluid-font(14, 20, 320, 1040)
+    line-height: 1.2
+    letter-spacing: .03em
+
+  &__scroll
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translate(-50%, -100%)
+
+  &__bg
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: -1
+    background: $hero-bg-color
+    background-size: cover
+
+  &__links
+    position: absolute
+    bottom: 2em
+    right: 2em
+    display: flex
+    align-items: center
+    transform-origin: top right
+    transform: rotate(90deg)
+    // &::after
+    //   content: ''
+    //   width: 4rem
+    //   height: 1px
+    //   background: $white
+    //   vertical-align: middle
+
+  &__link
+    color: $white
+    margin-left: 1em
+    cursor: not-allowed

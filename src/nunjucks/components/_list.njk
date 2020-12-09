@@ -1,0 +1,21 @@
+{% macro list(title, items) %}
+  {# BEGIN List title #}
+  {% if title %}
+    <h3 class='section__title h3'>{{ title }}</h3>
+  {% endif %}
+  {# END List title #}
+
+  {# BEGIN List #}
+  <ul class='list'>
+    {% for item in items %}
+      <li class='list__item'>
+        {% if item.href %}
+          <a href='{{ item.href }}'>{{ item.text }}</a>
+        {% else %}
+          <span>{{ item.text }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {# END List #}
+{% endmacro %}

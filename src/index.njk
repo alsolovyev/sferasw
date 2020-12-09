@@ -1,0 +1,14 @@
+{% extends 'nunjucks/layouts/_layout.njk' %}
+
+{% from 'nunjucks/components/_section.njk' import section %}
+
+{% block content %}
+  {% include 'nunjucks/sections/_hero.njk' %}
+  <div class='parallax-wrapper dots'>
+    {{ section(id = 'about', centered = true, title = about.title, text = about.text) }}
+    {{ section(id = 'mission', title = mission.title, text = mission.text, image = mission.image) }}
+    {% include 'nunjucks/sections/_gallery.njk' %}
+    {{ section(id = 'projects', lists = [projects.completed, projects.inProgress]) }}
+    {{ section(id = 'contacts', title = contacts.title, image = contacts.image, lists = [{ items: contacts.links }]) }}
+  </div>
+{% endblock %}

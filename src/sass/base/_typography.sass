@@ -1,0 +1,58 @@
+// @include font-face('Name', 'Name-Heavy',            'Name', 900)
+// @include font-face('Name', 'Name-HeavyItalic',      'Name', 900, italic)
+// @include font-face('Name', 'Name-Black',            'Name', 800)
+// @include font-face('Name', 'Name-BlackItalic',      'Name', 800, italic)
+// @include font-face('Name', 'Name-ExtraBold',        'Name', 700)
+// @include font-face('Name', 'Name-ExtraBoldItalic',  'Name', 700, italic)
+// @include font-face('Name', 'Name-Bold',             'Name', 600)
+// @include font-face('Name', 'Name-BoldItalic',       'Name', 600, italic)
+// @include font-face('Name', 'Name-Medium',           'Name', 500)
+// @include font-face('Name', 'Name-MediumItalic',     'Name', 500, italic)
+// @include font-face('Name', 'Name-Regular',          'Name', 400)
+// @include font-face('Name', 'Name-Italic',           'Name', 400, italic)
+// @include font-face('Name', 'Name-Light',            'Name', 300)
+// @include font-face('Name', 'Name-LightItalic',      'Name', 300, italic)
+// @include font-face('Name', 'Name-ExtraLight',       'Name', 200)
+// @include font-face('Name', 'Name-ExtraLightItalic', 'Name', 200, italic)
+// @include font-face('Name', 'Name-Thin',             'Name', 100)
+// @include font-face('Name', 'Name-ThinItalic',       'Name', 100, italic)
+
+@include font-face('ubuntu', 'Ubuntu-M', 'Ubuntu', 500)
+@include font-face('ubuntu', 'Ubuntu-R', 'Ubuntu', 400)
+@include font-face('ubuntu', 'Ubuntu-L', 'Ubuntu', 300)
+@include font-face('playfair', 'PlayfairDisplay-Regular', 'Playfair', 400)
+
+
+::selection
+  color: $white // nth($colors, random(length($colors)))
+  background: $accent-color // $black // nth($colors, random(length($colors)))
+
+h1,h2,h3,h4,h5,h6
+  font-family: Playfair, sans-serif
+  line-height: 1.3
+  font-weight: 400
+
+.h1
+  @include fluid-font(60, 130, 320, 1040)
+
+.h2
+  @include fluid-font(36, 50, 320, 1040)
+
+.h3
+  @include fluid-font(32, 40, 320, 1040)
+
+p,li,a
+  @include fluid-font(16, 18, 320, 1040)
+  color: #484848
+
+p + p
+  margin-top: 1.2em
+
+a:not([class])
+  font-size: inherit
+  border-bottom: 1px dashed rgba($accent-color, .5)
+  &:hover,
+  &:active,
+  &:focus
+    // border-color: $accent-color
+    color: $accent-color

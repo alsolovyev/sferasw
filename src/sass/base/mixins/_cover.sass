@@ -1,0 +1,11 @@
+/**
+ * Resize an element to cover the entire container
+ *
+ * @param {number} offset - element offset
+ */
+@mixin cover($offset: 0)
+  position: absolute
+  top: $offset
+  right: $offset
+  bottom: $offset
+  left: $offset

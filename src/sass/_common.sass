@@ -1,0 +1,28 @@
+/** Development styles */
+@if variable-exists(isDev) and $isDev
+  /** Show HTML elements area */
+  @include dev-outlines
+
+  /** Blur images when they have no alt attribute */
+  img:not([alt]),
+  img[alt='']
+    @include blur(20)
+
+
+/** Root defaults */
+html
+  font-size: 62.5%
+  // scroll-behavior: smooth
+
+
+body
+  font: 300 1.6rem/1.5 Ubuntu, -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, Arial, Helvetica, sans-serif
+  color: $font-color
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  @include hide-scrollbar
+
+main
+  margin-bottom: #{$footer-height + 'px'}
+  // padding-bottom: #{$section-gap + 'px'}
+  box-shadow: 0 0 20px rgba($black, .8)

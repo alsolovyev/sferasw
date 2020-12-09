@@ -1,0 +1,15 @@
+{% from 'nunjucks/components/_copyright.njk' import copyright %}
+{% from 'nunjucks/components/_navbar.njk' import navbar %}
+{% from 'nunjucks/ui/_logo.njk' import logo %}
+{% from 'nunjucks/ui/_burger.njk' import burger %}
+
+<header class='header' data-show-menu>
+  <div class='header__inner'>
+    {{ logo(className = 'header__logo') }}
+    {{ navbar(navlinks, 'header__nav') }}
+    {{ copyright() }}
+    {{ burger(className = 'header__btn js-toggle-menu') }}
+  </div>
+
+  <div class='header__overlay'></div>
+</header>

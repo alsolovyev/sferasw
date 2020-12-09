@@ -1,0 +1,19 @@
+/**
+ * Create a font face rule
+ *
+ * Possible Browser Support:
+ *   url('../fonts/subdir/name.woff') format('woff')
+ *   url('../fonts/subdir/name.woff2') format('woff2')
+ *   url('../fonts/subdir/name.ttf') format('truetype')
+ *   url('../fonts/subdir/name.otf') format('opentype')
+ *   url('../fonts/subdir/name.svg#svgFontName') format('svg')
+ *   url('../fonts/subdir/name.eot?#iefix') format('embedded-opentype')
+ */
+
+@mixin font-face($alias, $name, $subfolder, $weight: normal, $style: normal, $display: swap)
+  @font-face
+    font-family: $alias
+    src: url('../fonts/#{$subfolder}/#{$name}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+    font-display: $display

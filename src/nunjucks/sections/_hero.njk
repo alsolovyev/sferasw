@@ -1,0 +1,43 @@
+{% from 'nunjucks/ui/_mouse.njk' import mouse %}
+
+<section class='hero' role='contentinfo' aria-label='{{ hero.overview }}'>
+  {# BEGIN Message #}
+  <div class='hero__inner rellax' data-rellax-speed='-4'>
+    <h1 class='h1'>{{ hero.title }}</h1>
+    <p class='hero__subtitle line'>{{ hero.subtitle }}</p>
+  </div>
+  {# END Message #}
+
+
+  {# BEGIN Scroll button #}
+  {{ mouse(className = 'hero__scroll') }}
+  {# END Scroll button #}
+
+
+  {# BEGIN Background image #}
+  <div class='hero__bg rellax' style='background-image: url(images/hero-blur.jpg)' data-rellax-speed='-7'>
+    {# <picture> #}
+      <img
+        class='bg-img lazy'
+        sizes='100vw'
+        srcset='
+          images/hero-480.jpg 480w,
+          images/hero-960.jpg 960w,
+          images/hero-1440.jpg 1440w,
+          images/hero-1920.jpg 1920w
+        '
+        data-src='images/hero.jpg'
+        src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+        alt='Skyscraper'>
+    {# </picture> #}
+  </div>
+  {# END Background image #}
+
+
+  {# BEGIN Links #}
+  <ul class='hero__links'>
+    <li><a href='#' class='hero__link'>Facebook</a></li>
+    <li><a href='#' class='hero__link'>LinkedIn</a></li>
+  </ul>
+  {# END Links #}
+</section>

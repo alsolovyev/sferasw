@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>{% if isDev %}[Dev] {% endif %}{{ title }}</title>
+  <link rel='icon' href='images/favicon.png' type='image/png'>
+  {% if not isDev %}
+    {% include 'nunjucks/meta/_social.njk' %}
+  {% endif %}
+  <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+  <meta name='format-detection' content='telephone=no'>
+  <link rel='stylesheet' href='sass/app.sass'>
+</head>
+<body>
+  {# BEGIN Header #}
+  {% include 'nunjucks/layouts/_header.njk' %}
+  {# END Header #}
+
+  {# BEGIN Content #}
+  <main>{% block content %}{% endblock %}</main>
+  {# END Content #}
+
+  {# BEGIN Footer #}
+  {% include 'nunjucks/layouts/_footer.njk' %}
+  {# END Footer #}
+
+
+  {# BEGIN Scripts #}
+  <script src='js/app.js'></script>
+  {# END Scripts #}
+
+  {# BEGIN Web Analytics #}
+  {% if not isDev %}{% endif %}
+  {# END Web Analytics #}
+</body>
+</html>

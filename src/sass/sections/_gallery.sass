@@ -1,0 +1,73 @@
+/**
+ *
+ */
+
+.gallery
+  margin: #{$section-gap + 'px'} 0
+  background: $grey-dark
+
+  &__inner
+    display: flex
+    flex-wrap: wrap
+    &:hover .gallery__art:not(:hover)
+      &::before
+        opacity: .8
+
+  &__art
+    position: relative
+    width: 25%
+    cursor: pointer
+    @include max-width(897)
+      width: 50%
+    @include max-width(500)
+      width: 100%
+
+    &::before
+      content: ''
+      position: relative
+      z-index: 4
+      display: table
+      padding-top: 75%
+      width: 100%
+      background: $black
+      opacity: 0
+      transition: opacity 300ms
+      pointer-events: none
+
+
+// $gap: 4px
+// .gallery
+//   max-width: 1200px
+//   margin: #{$section-gap + 'px'} auto 0 auto
+//   background: $white
+
+//   &__inner
+//     margin-top: -$gap
+//     @include min-width(600)
+//       display: flex
+//       flex-wrap: wrap
+//       width: calc(100% + #{$gap})
+//       margin-left: -$gap
+
+//   &__art
+//     position: relative
+//     margin-top: $gap
+//     @include min-width(600)
+//       height: 350px
+//       width: calc(50% - #{$gap})
+//       margin-left: $gap
+//     @include min-width(768)
+//       height: 350px
+//       &:nth-child(1),
+//       &:nth-child(4)
+//         width: calc(30% - #{$gap})
+//       &:nth-child(2),
+//       &:nth-child(3)
+//         width: calc(70% - #{$gap})
+
+//     &::before
+//       content: ''
+//       display: table
+//       padding-top: 50%
+//       @include min-width(600)
+//         padding-top: auto

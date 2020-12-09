@@ -1,0 +1,62 @@
+/**
+ * Mouse: scroll further button
+ */
+$mouse-width: 26
+$mouse-height: 40
+$mouse-weight: 2
+$mouse-color: #333
+$mouse-transition-opacity: .6
+$mouse-transition-duration: 300
+$mouse-wheel-width: 1
+$mouse-wheel-height: 12
+$mouse-wheel-rounding: 4
+$mouse-wheel-animation-duration: 2.4s
+$mouse-wheel-animation-easing: cubic-bezier(1, 0, 0, 1)
+
+
+.mouse
+  position: relative
+  width: #{$mouse-width + 'px'}
+  height: #{$mouse-height + 'px'}
+  border: #{$mouse-weight + 'px'} solid $mouse-color
+  border-radius: 40px
+  transition: opacity #{$mouse-transition-duration + 'ms'}
+
+  /**
+   * Wheel
+   */
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    width: #{$mouse-weight + 'px'}
+    height: #{$mouse-wheel-height + 'px'}
+    margin: #{-$mouse-wheel-height * .5 + 'px'} 0 0 #{-$mouse-wheel-width + 'px'}
+    background: $mouse-color
+    border-radius: #{$mouse-wheel-rounding + 'px'}
+    animation: scroll-further $mouse-wheel-animation-duration infinite $mouse-wheel-animation-easing
+
+  /**
+   * Interaction states
+   */
+  &:hover
+    opacity: $mouse-transition-opacity
+
+
+/**
+  * Keyframes
+  */
+@keyframes scroll-further
+  0%
+    transform: scale3d(1, 0, 1)
+    transform-origin: top
+  50%
+    transform: scale3d(1, 1, 1)
+    transform-origin: top
+  51%
+    transform: scale3d(1, 1, 1)
+    transform-origin: bottom
+  100%
+    transform: scale3d(1, 0, 1)
+    transform-origin: bottom

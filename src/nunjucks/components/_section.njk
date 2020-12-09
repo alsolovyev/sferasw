@@ -1,0 +1,58 @@
+{% from 'nunjucks/components/_list.njk' import list %}
+
+{% macro section(title, text, lists, image, centered, id) %}
+  <section
+    role='contentinfo'
+    aria-label='{{ title }}{{ lists[0].title if not title}}'
+    class='section{{ ' section--centered' if centered }}{{ ' section--' + image.position if image }}'
+    {% if id %}id='{{ id }}'{% endif %}
+    >
+    {# BEGIN Image #}
+    {% if image %}
+    <div class='section__img' style='background-image: url({{ image.url.thumbnail }})'>
+      {# <picture> #}
+        <img
+          class='bg-img lazy'
+          data-src='{{ image.url.original }}'
+          src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+          alt='{{ image.alt }}'
+        >
+      {# </picture> #}
+    </div>
+    {% endif %}
+    {# END Image #}
+
+
+    {# BEGIN Content #}
+    <div class='section__inner'>
+      {# BEGIN Title #}
+      {% if title %}
+        <h2 class='section__title h2'>{{ title }}</h2>
+      {% endif %}
+      {# END Title #}
+
+      {# BEGIN Text content #}
+      {% if text %}
+        {% if text | isArray %}
+          {% for p in text %}<p>{{ p }}</p>{% endfor %}
+        {% else %}
+          <p>{{ text }}</p>
+        {% endif %}
+      {% endif %}
+      {# END Text content #}
+
+      {# BEGIN Lists #}
+      {% if lists %}
+        {% for _list in lists %}
+          {{ list(
+            title = _list.title,
+            items = _list.items,
+            icon = _list.icon
+          ) }}
+        {% endfor %}
+      {% endif %}
+      {# END Lists #}
+    </div>
+    {# END Content #}
+  </section>
+{% endmacro %}

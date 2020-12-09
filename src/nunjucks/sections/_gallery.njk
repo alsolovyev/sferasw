@@ -1,0 +1,15 @@
+<div class='gallery' id='gallery'>
+  <ul class='gallery__inner'>
+    {% for image in gallery.images %}
+      <li class='gallery__art'>
+        <img
+          data-original='{{ image.original }}'
+          class='bg-img bg-img--aps lazy'
+          data-src='{{ image.thumbnail }}'
+          src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+          alt='{{ image.description }}'
+        >
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,46 @@
+/**
+ * Mobile menu button
+ */
+$burger-area: 42
+$burger-bar-width: 18
+$burger-bar-height: 2
+$burger-bar-gap: 3
+$burger-bar-color: currentColor
+
+
+.burger
+  // display: block
+  width: #{$burger-area + 'px'}
+  height: #{$burger-area + 'px'}
+  // background: red
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate3d(-50%, -50%, 0)
+    width: #{$burger-bar-width + 'px'}
+    height: #{$burger-bar-height + 'px'}
+    border-radius: 4px
+    background: $burger-bar-color
+
+  &::before
+    margin-top: #{-$burger-bar-gap + 'px'}
+
+  &::after
+    margin-top: #{$burger-bar-gap + 'px'}
+    transform: translate3d(-50%, -50%, 0) scale3d(0.7, 1, 1)
+    transform-origin: left
+    transition: transform 300ms
+
+  &:hover
+    &::after
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1) !important
+
+@mixin menu-shown-burger
+  .burger
+    &::after
+      transform: translate3d(-50%, -50%, 0) scale3d(0.7, 1, 1)
+      transform-origin: right

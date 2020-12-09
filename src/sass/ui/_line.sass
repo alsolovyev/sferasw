@@ -1,0 +1,17 @@
+/**
+ * Decorate line before text
+ */
+$line-widht: 1em
+$line-height: .05em
+$line-gap: .5em
+$line-color: currentColor
+
+.line
+  &::before
+    content: ''
+    display: inline-block
+    width: $line-widht
+    height: $line-height
+    background: $line-color
+    vertical-align: middle
+    margin-right: $line-gap

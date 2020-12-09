@@ -1,0 +1,6 @@
+{% macro mouse(className, ariaLabel = 'Scroll to find out more') %}
+  <a href='#about'
+    class='mouse{{ ' ' + className if className}}'
+    aria-label='{{ ariaLabel }}'
+  ></a>
+{% endmacro %}
